@@ -122,6 +122,9 @@ const Generator = () => {
           <button type="submit" disabled={loading}>
             {loading ? 'Verifying...' : 'Verify Code'}
           </button>
+          <button type="button" className="btn-secondary" onClick={() => { setStep(1); setCode(''); }} disabled={loading}>
+            Back to Phone Number
+          </button>
         </form>
       )}
 
@@ -140,6 +143,9 @@ const Generator = () => {
           <button type="submit" disabled={loading}>
             {loading ? 'Logging in...' : 'Submit Password'}
           </button>
+          <button type="button" className="btn-secondary" onClick={() => setStep(2)} disabled={loading}>
+            Back to Code
+          </button>
         </form>
       )}
 
@@ -151,13 +157,18 @@ const Generator = () => {
             {sessionString}
           </div>
           <button 
-            style={{marginTop: '1rem', background: 'white', color: 'var(--bg-dark)'}}
+            style={{marginTop: '1rem'}}
             onClick={() => {
               navigator.clipboard.writeText(sessionString);
               alert('Copied to clipboard!');
             }}
           >
             Copy Session String
+          </button>
+          <button type="button" className="btn-secondary" onClick={() => {
+            setStep(1); setPhone(''); setCode(''); setPassword(''); setSessionString('');
+          }}>
+            Generate Another Session
           </button>
         </div>
       )}
