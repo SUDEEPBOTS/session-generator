@@ -26,7 +26,7 @@ const Generator = () => {
   const [sessionString, setSessionString] = useState('');
   const [needsPassword, setNeedsPassword] = useState(false);
 
-  const API_URL = "http://localhost:8000/api"; // Default dev URL
+  const API_URL = "/api"; // Production relative URL
 
   const handleSendCode = async (e) => {
     e.preventDefault();
